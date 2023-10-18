@@ -123,7 +123,6 @@ main{
     display: flex;
     width: 60%;
     flex-direction: column;
-    justify-content: center;
     margin-left: 25px;
 }
 
@@ -142,13 +141,19 @@ main{
 }
 
 .bottom-content-container div{
+    display: flex;
+    flex-direction: column;
     width: 50%;
-    background-color: white;
     min-width: 400px;
+    background-color: white;
 }
 
 .bottom-description-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 25px;
+    height: 100%;
 }
 
 .bottom-content-container div:nth-child(1){
