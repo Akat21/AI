@@ -6,7 +6,8 @@
 }
 
 body{
-    background-color: #f0f0f0;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
 }
 
 nav{
@@ -19,21 +20,24 @@ nav{
     width: 100%;
     height: 90px;
     padding: 15px 25px 15px 25px;
-    background-color:#f0f0f0;
+    background-color:#2b2b2b;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     top: 0;
+    z-index: 3;
 }
 
 nav h1{
     user-select: none;
 }
 
-nav h1 span:nth-child(1){
-    color: gray;
+nav h1 span:nth-child(2){
+    margin-right: 15px;
+    font-weight: normal;
+    color: #C8C8C8;
 }
 
 p, li{
-    color: gray;
+    color: #f0f0f0;
 }
 
 .categories-container{
@@ -46,7 +50,7 @@ p, li{
 .categories-container a{
     display: flex;
     text-decoration: none;
-    color: gray;
+    color: #f0f0f0;
     font-size: 17px;
     margin: 0 10px 0 10px;
     transition: all 0.3s ease-in-out;
@@ -57,7 +61,7 @@ p, li{
 }
 
 .categories-container a:hover{
-    color: black;
+    color: #C8C8C8;
 }
 
 main{
@@ -77,14 +81,23 @@ main{
     justify-content: center;
     width: 40%;
     height: 100%;
-    background-color: white;
+    background-color: #2b2b2b;
     min-width: 500px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .left-content-container p, .left-content-container a{
     margin: 25px 0;
     margin-left: 25px;
     margin-right: 25px;
+    font-family: 'Open Sans', sans-serif; 
+    text-align: justify;
+}
+
+.left-content-container h1{
+    margin-left: 25px;
+    margin-top: 15px;
+    font-family: 'Lato', sans-serif; 
 }
 
 .left-content-container p:nth-child(4){
@@ -93,13 +106,44 @@ main{
     margin-bottom: 7px;
 }
 
-.left-content-container h1{
-    margin-left: 25px;
-    margin-top: 15px;
-}
-
 .left-content-container ul{
     padding-left: 50px;
+    list-style: none;
+}
+
+.left-content-container a{
+    color: #C8C8C8;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+}
+
+.left-content-container a:hover{
+    color: #f0f0f0;
+}
+
+.left-content-container ul li{
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.left-content-container ul li:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.left-content-container ul li span{
+    margin-left: 10px;
+    color: #f0f0f0;
+    font-family: 'Roboto', sans-serif; 
 }
 
 .left-content-container img{
@@ -114,12 +158,24 @@ main{
     height: 100%;
 }
 
+.right-content-container a{
+    color: #C8C8C8;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+}
+
+.right-content-container a:hover{
+    color: #f0f0f0;
+}
+
 .upper-content-container{
     display: flex;
     flex: 1;
     flex-direction: row;
     height: 30%;
-    background-color: white;
+    background-color: #2b2b2b;
     min-width: 810px;
     margin: 0 10px 0 10px;
 }
@@ -127,6 +183,7 @@ main{
 .upper-content-container img{
     width: 40%;
     object-fit: cover;
+    order: 2; 
 }
 
 .description-container{
@@ -155,7 +212,7 @@ main{
     flex-direction: column;
     width: 50%;
     min-width: 400px;
-    background-color: white;
+    background-color: #2b2b2b;
 }
 
 .bottom-description-container{
@@ -191,20 +248,25 @@ main{
     height: 90px;
     min-width: 1350px;
     padding: 15px 25px 15px 25px;
-    background-color:white;
+    background-color:#2b2b2b;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer-left-container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     user-select: none;
 }
 
-.footer-left-container h1{
+.footer-left-container span:nth-child(1){
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+.footer-left-container span:nth-child(2){
     margin-right: 15px;
+    font-weight: normal;
+    color: #C8C8C8;
 }
 
 .footer-right-container{
@@ -216,13 +278,13 @@ main{
 
 .footer-right-container a{
     text-decoration: none;
-    color: gray;
+    color: #f0f0f0;
     margin-right: 15px;
     transition: all 0.3s ease-in-out;
 }
 
 .footer-right-container a:hover{
-    color: black;
+    color: #C8C8C8;
 }
 
 @media screen and (max-width: 540px){
@@ -310,4 +372,3 @@ main{
         font-size: 12px;
     }
 }
-    
