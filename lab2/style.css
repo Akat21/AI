@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.todo-item-container{
+    display: flex;  
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.todo-items-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-item-container input{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.todo-item-container p{
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.todo-item-container button{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.todo-item-container button span{
+    font-size: 24px;
+}
+
+.add-item-container{
+    margin-top: 10px;
+}
+
+.add-item-container input{
+    height: 30px;
+    margin-right: 10px;
+}
+
+.add-item-container button{
+    padding: 2px;
+    height: 30px;
+}
