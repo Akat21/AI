@@ -4,12 +4,24 @@
     box-sizing: border-box;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+}
+
 main{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 20px;
-    width: 30%;
+    width: 40%;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .search-bar{
@@ -22,6 +34,11 @@ main{
     height: 30px;
     font-size: 20px;
     padding: 3px;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #f0f0f0;
+    outline: none; 
 }
 
 .search-bar button{
@@ -32,6 +49,9 @@ main{
     height: 30px;
     margin-right: 10px;
     cursor: pointer;
+    background-color: #2d2d2d;
+    border: none;
+    color: #f0f0f0;
 }
 
 .todo-item-container{
@@ -45,17 +65,37 @@ main{
     width: 40%;
     margin-right: 10px;
     padding: 4px;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #f0f0f0;
+    outline: none; 
 }
 
 .date-edit{
     width: 40%;
     margin-right: 10px;
     padding: 4px;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #f0f0f0;
+    outline: none; 
 }
 
 .save-btn{
     width: 20%;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
 }
+
+.save-btn:hover{
+    background-color: #1c1c1c;
+}  
 
 .edit-container{
     display: flex;
@@ -86,6 +126,11 @@ main{
     width: 30px;
     height: 30px;
     text-align: center;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
 }
 
 .todo-item-container button span{
@@ -104,18 +149,38 @@ main{
     font-size: 20px;
     padding: 3px;
     width: 50%;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #f0f0f0;
+    outline: none;
 }
 
 .add-item-container input:nth-child(2){
     height: 30px;
     margin-right: 10px;
     width: 30%;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #f0f0f0;
+    outline: none;
 }
 
 .add-item-container button{
     padding: 2px;
     height: 30px;
     width: 20%;
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-item-container button:hover{
+    background-color: #1c1c1c;
 }
 
 .delete-btn{

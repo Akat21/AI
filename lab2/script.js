@@ -1,7 +1,15 @@
 const addButton = document.getElementById("add-btn");
 const searchButton = document.getElementById("search-btn");
 const todoListContainer = document.getElementsByClassName("todo-items-container")[0];
-const todoList = [];
+let todoList = [];
+
+if (localStorage.getItem("todoList")) {
+    todoList = JSON.parse(localStorage.getItem("todoList"));
+    console.log(todoList);
+} else {
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+
 
 const addTodo = () => {
     const todoNameInputElement = document.getElementById("add-input");
@@ -14,6 +22,8 @@ const addTodo = () => {
     } else {
         todoList.push({id: todoList.length, name: name, date: date, checked: false})
         todoNameInputElement.value = "";
+        localStorage.setItem("todoList", JSON.stringify(todoList));
+        console.log(JSON.parse(localStorage.getItem("todoList")));
         draw();
     }
 }
@@ -23,9 +33,14 @@ const findTodo = () => {
     const search = todoSearchInputElement.value;
     draw();
     if (search === ""){
-        alert("Wpisz nazwę elementu TODO listy, którego szukasz!");
+        draw();
         return;
     } else {
+        const filteredList = todoList.filter(todoListItem => todoListItem.name.includes(search));
+        todoList = filteredList;
+        draw();
+        todoList = JSON.parse(localStorage.getItem("todoList"));
+
         const names = document.getElementsByClassName("name-display");
         Array.from(names).forEach((name) => {
             if (name.innerText.includes(search)){
@@ -34,10 +49,6 @@ const findTodo = () => {
         });
         todoSearchInputElement.value = "";
     }
-}
-
-const editTodo = () => {
-    console.log(todoItemContainers)
 }
 
 searchButton.addEventListener("click", findTodo);
@@ -71,6 +82,11 @@ const draw = () =>{
         checkbox.type = "checkbox";
         checkbox.className = "checkbox";
         checkbox.checked = todoListItem.checked;
+        checkbox.addEventListener("change", () => {
+            todoListItem.checked = checkbox.checked;
+            localStorage.setItem("todoList", JSON.stringify(todoList));
+            draw();
+        });
 
         const name = document.createElement("p");
         name.className = "name-display";
@@ -90,6 +106,7 @@ const draw = () =>{
         deleteButton.addEventListener("click", () => {
             const idx = todoList.findIndex(item => item.id === todoListItem.id);
             todoList.splice(idx, 1);
+            localStorage.setItem("todoList", JSON.stringify(todoList));
             draw();
         });
 
@@ -115,6 +132,7 @@ const draw = () =>{
             saveButton.addEventListener("click", () => {
                 todoListItem.name = name.value;
                 todoListItem.date = date.value;
+                localStorage.setItem("todoList", JSON.stringify(todoList));
                 draw();
             });
             
@@ -136,3 +154,4 @@ const draw = () =>{
 }
 
 
+draw();
