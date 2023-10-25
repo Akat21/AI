@@ -41,12 +41,34 @@ main{
     justify-content: space-between;
 }
 
+.name-edit{
+    width: 40%;
+    margin-right: 10px;
+    padding: 4px;
+}
+
+.date-edit{
+    width: 40%;
+    margin-right: 10px;
+    padding: 4px;
+}
+
+.save-btn{
+    width: 20%;
+}
+
+.edit-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
 .todo-items-container{
     display: flex;
     flex-direction: column;
 }
 
-.todo-item-container input{
+.checkbox{
     width: 30px;
     height: 30px;
     margin-right: 10px;
@@ -60,7 +82,7 @@ main{
     text-overflow: ellipsis;
 }
 
-.todo-item-container button{
+.delete-btn{
     width: 30px;
     height: 30px;
     text-align: center;

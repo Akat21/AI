@@ -1,7 +1,6 @@
 const addButton = document.getElementById("add-btn");
 const searchButton = document.getElementById("search-btn");
 const todoListContainer = document.getElementsByClassName("todo-items-container")[0];
-
 const todoList = [];
 
 const addTodo = () => {
@@ -37,6 +36,10 @@ const findTodo = () => {
     }
 }
 
+const editTodo = () => {
+    console.log(todoItemContainers)
+}
+
 searchButton.addEventListener("click", findTodo);
 
 addButton.addEventListener("click", addTodo);
@@ -66,6 +69,7 @@ const draw = () =>{
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        checkbox.className = "checkbox";
         checkbox.checked = todoListItem.checked;
 
         const name = document.createElement("p");
@@ -87,6 +91,39 @@ const draw = () =>{
             const idx = todoList.findIndex(item => item.id === todoListItem.id);
             todoList.splice(idx, 1);
             draw();
+        });
+
+        name.addEventListener("dblclick", () => {
+            item.innerHTML = "";
+
+            const editContainer = document.createElement("div");
+            editContainer.className = "edit-container";
+
+            const name = document.createElement("input");
+            name.className = "name-edit";
+            name.value = todoListItem.name;
+
+            const date = document.createElement("input");
+            date.className = "date-edit";   
+            date.type = "date";
+            date.value = todoListItem.date;
+
+            const saveButton = document.createElement("button");
+            saveButton.className = "save-btn";
+            saveButton.textContent = "Zmień";
+
+            saveButton.addEventListener("click", () => {
+                todoListItem.name = name.value;
+                todoListItem.date = date.value;
+                draw();
+            });
+            
+            editContainer.appendChild(name);
+            editContainer.appendChild(date);
+            editContainer.appendChild(saveButton);
+
+            item.appendChild(editContainer);
+            item.appendChild(deleteButton);
         });
         
         item.appendChild(checkbox);
