@@ -1,0 +1,10 @@
+#map-container{
+    width: 400px;
+    height: 400px;
+}
+
+.upper-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
