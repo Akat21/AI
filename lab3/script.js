@@ -60,6 +60,7 @@ const getMapImg = () => {
             }
         }
         shuffleMapImgs();
+        createTiles();
     });
 
 
@@ -115,7 +116,6 @@ const createTiles = () => {
             const source = document.getElementById(data);
             console.log(img.id)
             if (img.id.startsWith('source')) {
-                console.log("HAILO?")
                 const temp = img.cloneNode(true);
                 img.src = source.src;
                 img.id = source.id;
@@ -127,9 +127,22 @@ const createTiles = () => {
                 source.src = '';
                 source.id = "dest" + (i + 1);
             }
+            checkSolution();
         });
         img.id = "dest" + (i + 1);
         solutionContainer.appendChild(img);
+    }
+}
+
+const checkSolution = () => {
+    let cnt = 0;
+    for(let i = 0; i < 16; i++){
+        if(solutionContainer.children[i].id === "source" + (i + 1)){
+            cnt++;
+        }
+    }
+    if(cnt === 16){
+        alert("You win!");
     }
 }
 
