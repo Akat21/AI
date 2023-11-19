@@ -44,18 +44,25 @@ const getMapImg = () => {
             for (let j = 0; j < 4; j++){
                 const img = document.createElement('img');
                 img.style.margin = '1px';
+                img.draggable = true;
+                img.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', e.target.id);
+                });
                 const partCanvas = document.createElement('canvas');
                 partCanvas.width = partWidth;
                 partCanvas.height = partHeight;
                 const partContext = partCanvas.getContext('2d');
                 partContext.drawImage(canvas, j * partHeight, i * partHeight, partWidth, partHeight, 0, 0, partWidth, partHeight);
+                
                 img.src = partCanvas.toDataURL();
-                PicsList.push({img: img, id: cnt});
+                PicsList.push({img: img, id: "source" + cnt});
                 cnt++;
             }
         }
         shuffleMapImgs();
     });
+
+
 }
 
 const shuffleMapImgs = () =>{
@@ -85,5 +92,47 @@ downloadMapBtn.addEventListener('click', getMapImg);
 const currentLocationBtn = document.getElementsByClassName('location-btn')[0];
 currentLocationBtn.addEventListener('click', setCurrentLocation);
 
+const solutionContainer = document.getElementsByClassName('solution-container')[0];
+
+const createTiles = () => {
+    solutionContainer.innerHTML = '';
+    for(let i = 0; i < 16; i++){
+        const img = document.createElement('img');
+        img.style.width = '100px';
+        img.style.height = '100px';
+        img.style.border = '1px solid black';
+        img.draggable = true;
+        img.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', e.target.id);
+        });
+        img.addEventListener('dragover', (e) => { 
+            e.preventDefault();
+        });
+        img.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const data = e.dataTransfer.getData('text/plain');
+            console.log(data);
+            const source = document.getElementById(data);
+            console.log(img.id)
+            if (img.id.startsWith('source')) {
+                console.log("HAILO?")
+                const temp = img.cloneNode(true);
+                img.src = source.src;
+                img.id = source.id;
+                source.src = temp.src;
+                source.id = temp.id;
+            } else {
+                img.src = source.src;
+                img.id = source.id;
+                source.src = '';
+                source.id = "dest" + (i + 1);
+            }
+        });
+        img.id = "dest" + (i + 1);
+        solutionContainer.appendChild(img);
+    }
+}
+
 getLocation();
+createTiles();
 initMap();
