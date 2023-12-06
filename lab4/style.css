@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.weather-display-container,
+.info-container{
+    height: 100%;
+}
+
+.weather-display-container{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    flex: 3;
+}
+
+.forecast{
+    display: flex;
+    flex-direction: row;
+}
+
+.forecast div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.forecast-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+}
+
+.display{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    height: 50%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Overpass', sans-serif;
+    user-select: none;
+}
+
+.display h1{
+    font-size: 120px;
+}
+
+.display img{
+    fill: white;
+    stroke: white;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(95%, -60%);
+    width: 20%;
+}
+
+.location-details{
+    margin-left: 3vh;
+    margin-right: 3vh;
+}
+
+.location-details h2{
+    font-size: 10vh;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.location-details p{
+    font-size: 20px;
+}
+
+.background-img{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10;
+    filter: brightness(0.75);
+}
+
+.info-container{
+    flex: 2;
+    opacity: 0.99;
+    backdrop-filter: brightness(0.7) blur(50px);
+}
+
+.info-container hr{
+    width: auto;
+    justify-content: center;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    margin-top: -4vh;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 43vh;
+    margin: 8vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+}
+
+.search-container input,
+.search-container button{
+    width: 70%;
+    height: 5vh;
+    font-size: 16px;
+    color: white;
+    background: none;
+    border: 0px;
+    opacity: 0.6;
+}
+
+.search-container input{
+    margin-bottom: 6vh;
+    border-bottom: 1px solid white;
+}
+
+.search-container input:focus{
+    outline: none;
+}
+
+.search-container button{
+    text-align: left;
+    margin-bottom: 3vh;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.search-container button:hover{
+    font-size: 20px;
+}
+
+.details-container{
+    color:white;
+    margin: 8vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    user-select: none;
+}
+
+.details-container p{
+    margin-top: -2vh;
+    margin-bottom: 6vh;
+}
+
+.detail-param-cloudy,
+.detail-param-humidity,
+.detail-param-wind,
+.detail-param-rain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+}
+
+.details-container h2{
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 1vh;
+    font-family: 'Rubik', sans-serif;
+}
+
+.param{
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 700px){
+   .details-container h2{
+        font-size: 15px;
+        margin-right: 4vh;
+   }
+
+    .info-container{
+        width: 40%;
+   }
+
+   .search-container,
+   .details-container,
+   .info-container hr{
+        margin-left: 2vh;
+        margin-right: 2vh;
+    }
+
+    .search-container{
+        overflow: hidden;
+    }
+   .search-container input,
+   .search-container button{
+        width: 100%;
+   }
+
+   .display{
+        flex-direction: column;
+   }
+
+   .location-details h2{
+        font-size: 12px;
+    }
+
+    .display img{
+        display: none;
+    }
+
+    .display h1{
+        font-size: 100px;
+        margin-left: 2vh;
+    }
+
+    .display h2{
+        font-size: 5vh;
+    }
+
+    .location-details p{
+        font-size: 16px;
+    
+    }
+  }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@500&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <img alt="background-image" class="background-img" src="./assets/JPG/rain-snow.jpg">
+        <div class="weather-display-container">
+            <div class="display">
+                <h1></h1>
+                <div class="location-details">
+                    <h2></h2>
+                </div>
+                <div class="forecast"></div>
+            </div>
+        </div>
+        <div class="info-container">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search your location">
+                <div class="search-autocomplete"></div>
+            </div>
+            <hr>
+            <div class="details-container">
+                <p>Weather Details</p>
+                <div class="detail-param-cloudy">
+                    <h2 class="param">Cloudy</h2>
+                    <h2 class="val"></h2>
+                </div>
+                <div class="detail-param-humidity">
+                    <h2 class="param">Humidity</h2>
+                    <h2 class="val"></h2>
+                </div>
+                <div class="detail-param-wind">
+                    <h2 class="param">Wind</h2>
+                    <h2 class="val"></h2>
+                </div>
+                <div class="detail-param-rain">
+                    <h2 class="param">Rain</h2>
+                    <h2 class="val"></h2>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <script type="module" src="./App.js"></script>
+</body>
+</html>
