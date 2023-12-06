@@ -50,7 +50,6 @@ const App = () =>{
             weatherData.list.forEach((forecast) =>{
                 const date = new Date(forecast.dt_txt)
                 if (date.getDate() !== prevDate.getDate()) {
-                    console.log('not same')
                     prevDate = date
                     const day = date.getDate() + ' ' + date.toLocaleDateString('en-US', {weekday: 'short'})
                     const temp = forecast.main.temp - 273.15
@@ -122,6 +121,7 @@ const App = () =>{
                 }
                 searchInput.value = ""
                 fetchWeather(city)
+                fetchWeatherForecast(city)
             })
         })
     })
